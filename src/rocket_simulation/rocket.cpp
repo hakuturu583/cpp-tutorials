@@ -4,6 +4,7 @@
 #include <iostream>
 #include <vector>
 
+//constructor of rocket status class
 rocket_status::rocket_status(double height,double fuel_weight,double rocket_weight,double acceralation,double velocity)
 {
   this->height = height;
@@ -14,6 +15,7 @@ rocket_status::rocket_status(double height,double fuel_weight,double rocket_weig
   this->velocity = velocity;
 }
 
+//constructor of rocket class
 rocket::rocket()
 {
   fuel_weight   =  1900000.0;
@@ -24,11 +26,13 @@ rocket::rocket()
   height_list.push_back(0.0);
 }
 
+//get rocket_status
 rocket_status rocket::get_status()
 {
   rocket_status status(height,fuel_weight,rocket_weight,acceralation,velocity);
 }
 
+//inject rocket fuel
 void rocket::inject_fuel(double input_fuel)
 {
   if(input_fuel > fuel_weight)
@@ -39,6 +43,7 @@ void rocket::inject_fuel(double input_fuel)
   update_status(input_fuel);
 }
 
+//update rocket status by using euler method
 void rocket::update_status(double input_fuel)
 {
   fuel_weight = fuel_weight - input_fuel;
@@ -52,9 +57,9 @@ void rocket::update_status(double input_fuel)
   time_list.push_back(time);
   height_list.push_back(height);
   print_status();
-  //plot_status();
 }
 
+//print status of rocket
 void  rocket::print_status()
 {
   std::cout << "[time = " << time << "]\nheight        : " << height << "[m]\nvelocity      : "  << velocity << "[m/s]\nacceralation  : " << acceralation << "[m^2/s^2]" << std::endl;
@@ -62,9 +67,9 @@ void  rocket::print_status()
   std::cout << "G             : " << G * (earth_raduis/(earth_raduis+height))* (earth_raduis/(earth_raduis+height)) <<'\n';
 }
 
+//plot rocket status by drawing graph
 void rocket::plot_status()
 {
   matplotlibcpp::plot(time_list,height_list,"--r");
-  //matplotlibcpp::show();
-  matplotlibcpp::pause(0.1);
+  matplotlibcpp::show();
 }
