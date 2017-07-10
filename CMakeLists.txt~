@@ -12,8 +12,8 @@ set(sample2_src ${CMAKE_SOURCE_DIR}/src/sample2/main.cpp ${CMAKE_SOURCE_DIR}/src
 add_executable(sample2 ${sample2_src})
 
 #rocket_simulation
-#find_package(PythonLibs REQUIRED)
-#include_directories(${PYTHON_INCLUDE_DIRS})
+find_package(PythonLibs REQUIRED)
+include_directories(${PYTHON_INCLUDE_DIRS})
 include_directories(${CMAKE_SOURCE_DIR}/include/rocket_simulation)
 set(rocket_simulation_src ${CMAKE_SOURCE_DIR}/src/rocket_simulation/main.cpp ${CMAKE_SOURCE_DIR}/src/rocket_simulation/rocket.cpp)
 add_executable(rocket_simulation ${rocket_simulation_src})

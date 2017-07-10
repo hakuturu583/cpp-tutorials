@@ -1,5 +1,5 @@
 #include "rocket.h"
-#include "matplotlibcpp.h"
+//#include "matplotlibcpp.h"
 
 #include <iostream>
 #include <vector>
@@ -70,6 +70,6 @@ void  rocket::print_status()
 //plot rocket status by drawing graph
 void rocket::plot_status()
 {
-  matplotlibcpp::plot(time_list,height_list,"--r");
-  matplotlibcpp::show();
+  //matplotlibcpp::plot(time_list,height_list,"--r");
+  //matplotlibcpp::show();
 }
