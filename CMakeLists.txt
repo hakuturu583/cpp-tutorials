@@ -7,7 +7,8 @@ set(sample1_src ${CMAKE_SOURCE_DIR}/src/sample1/main.cpp)
 add_executable(sample1 ${sample1_src})
 
 #sample2
-set(sample2_src ${CMAKE_SOURCE_DIR}/src/sample2/main.cpp)
+include_directories(${CMAKE_SOURCE_DIR}/include/sample2)
+set(sample2_src ${CMAKE_SOURCE_DIR}/src/sample2/main.cpp ${CMAKE_SOURCE_DIR}/src/sample2/human.cpp)
 add_executable(sample2 ${sample2_src})
 
 #rocket_simulation
